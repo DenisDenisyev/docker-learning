@@ -140,7 +140,7 @@ Hands-on practice quest #00: prerequisites sound-check <sup>30 + 5</sup>
 ``` 
 
 - [ ] When участники *именуют сценарии*, выполняют команды и анализируют их вывод и поведение
-- Сценарий "Как ...?"
+- Сценарий "Как получить информацию о докере, системе, прослушать события?"
 ```shell
 docker version # TODO: собственные пометки участников для будущего использования в проектах
 docker system info
@@ -149,7 +149,7 @@ docker system df
 docker events
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как залогиниться в репозиторий docker?"
 (в новом ssh shell, чтобы параллельно видеть вывод `docker events`)
 ```shell
 docker logout
@@ -157,13 +157,13 @@ open https://hub.docker.com/settings/security # to make Access Token
 docker login -u {{ registry-account }} -p {{ access-token }} # login default hub.docker.com registry
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как скачать image из репозитория?"
 ```shell
 docker image pull alpine
 docker system df
 ````
 
-- Сценарий "Как ...?"
+- Сценарий "Как создать/запустить контейнер одной командой?"
 ```shell
 docker container ls [--all]
 docker container run --name demo -it alpine
@@ -171,7 +171,7 @@ docker container run --name demo -it alpine
 /# exit 
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как удалить контейнер?"
 ```shell
 docker container ls [--all]
 docker container rm [--force] demo
@@ -180,12 +180,12 @@ docker container rm [--force] demo
 - [ ] Then участники делятся проблемами и отвечают на вопросы
 - Как назвали сценарии?
 - Успешна ли сконфигурирована система для использования docker?
-- Какая версия API?
-- Откуда взялся образ диска?
-- Сколько места занимает образ?
-- Сколько места занимает контейнер?
-- Какая версия образа скачивается по умолчанию?
-- Какая гостевая команда запускается при запуске контейнера?
+- Какая версия API? docker info
+- Откуда взялся образ диска? docker hub
+- Сколько места занимает образ? docker system df, docker image ls
+- Сколько места занимает контейнер? docker system df
+- Какая версия образа скачивается по умолчанию? latest
+- Какая гостевая команда запускается при запуске контейнера? прописано в image
 
 
 Жизненный цикл готового образа <sup>60</sup>
