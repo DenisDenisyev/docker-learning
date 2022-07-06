@@ -283,26 +283,26 @@ Hands-on practice quest #01: pre-built disk image lifecycle <sup>30 + 5</sup>
 - [ ] Given пары участников
 
 - [ ] When участники именуют сценарии, выполняют команды и анализируют их вывод и поведение
-- Сценарий "Как ...?"
+- Сценарий "Как посмотреть локальный список image?"
 ```shell
-docker image ls # TODO: собственные пометки участников для будущего использования в проектах
+docker image ls 
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как вытянуть image из удаленного репозитория (docker hub по-умолчанию)?"
 ```shell
 docker image pull alpine
 docker image ls
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как историю коммитов image?"
 ```shell
 docker image history alpine
 
 docker image inspect alpine
-docker image inspect --format='{{.Id}} -> {{.Parent}}' alpine
+docker image inspect --format='{{.Id}} -> {{.Parent}}' alpine # забавный формат, кажется, должен цепочку коммитов показывать
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как вручную изменить образ и закоммитить его как новый?"
 ```shell
 docker container run --name demo -it alpine
 /# touch side-effect.txt
@@ -312,13 +312,13 @@ docker container commit demo {{ registry-account }}/demo
 docker image ls
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как как поставить новый tag на image?"
 ```shell
 docker image tag {{ registry-account }}/demo:latest {{ registry-account }}/demo:1.0.0
 docker image ls
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как отправить image в общий репозиторий (docker.io по-умолчанию)?"
 ```shell
 docker image push {{ registry-account }}/demo:1.0.0
 ```
@@ -326,10 +326,10 @@ docker image push {{ registry-account }}/demo:1.0.0
 - Сценарий "Как ...?"
 ```shell
 docker image ls
-docker container rm demo
+docker container rm demo # удаляем контейнер,что запускали (он остановлен)
 docker image prune
 docker image ls
-docker image rm {{ registry-account }}/demo:1.0.0
+docker image rm {{ registry-account }}/demo:1.0.0 # удаляем tag
 docker image ls
 docker image rm {{ registry-account }}/demo:latest
 docker image ls
