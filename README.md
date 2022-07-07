@@ -323,17 +323,17 @@ docker image ls
 docker image push {{ registry-account }}/demo:1.0.0
 ```
 
-- Сценарий "Как ...?"
+- Сценарий "Как удалить неиспользуемые образы?"
 ```shell
 docker image ls
-docker container rm demo # удаляем контейнер,что запускали (он остановлен)
-docker image prune
+docker container rm demo # удаляем контейнер, что запускали (он остановлен)
+docker image prune # Удаляем образы без тэгов (как в гите потерянные грозди коммитов без метки бранча) 
 docker image ls
 docker image rm {{ registry-account }}/demo:1.0.0 # удаляем tag
 docker image ls
 docker image rm {{ registry-account }}/demo:latest
 docker image ls
-docker image prune --all
+docker image prune --all # Удаляем все образы, для которых нет ни одного контейнера
 ```
 
 - [ ] Then участники делятся проблемами и отвечают на вопросы
