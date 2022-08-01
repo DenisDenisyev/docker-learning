@@ -667,7 +667,7 @@ docker container run \
 docker container ls --all 
 
 curl localhost:8080/dbo/actuator/health
-open http://localhost:8080/dbo/swagger-ui.html
+open http://localhost:8080/dbo/swagger-ui/
 ```
 
 - Сценарий "Как остановить приложение"
@@ -796,7 +796,7 @@ docker container run \
 
 curl -H "X-API-VERSION:1" localhost:8080/dbo/actuator/health [| jq]
 curl -H "X-API-VERSION:1" localhost:8080/dbo/api/account [| jq]
-open "http://$(hostname -i):8080/dbo/swagger-ui.html"
+open "http://$(hostname -i):8080/dbo/swagger-ui/"
 ```
 
 - Сценарий "Как ...?"
@@ -813,10 +813,9 @@ docker container rm [--force]
 - [ ] Then участники делятся проблемами и отвечают на вопросы
 - Как назвали сценарии?
 - По какому URL получили доступ к веб-интерфейсу приложения для тестирования работоспособности?
-- Система работоспособна?
 - Исходя из экстернализированных настроек, как связаны компоненты системы?
 - Какие ресурсы были виртуализированы?
-- Какой оркестратор использовался?
+- Система работоспособна? Почему? Локализуйте проблему и предложите решения.
 
 
 Виртуализация сети <sup>30</sup>
